@@ -30,6 +30,7 @@ export default {}
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  overflow: hidden;
   padding-right: 50px;
   &-text {
     width: 450px;

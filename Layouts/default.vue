@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
    <Nuxt />
   </div>
 </template>
@@ -27,6 +27,8 @@ body {
  padding: 0;
  box-sizing: border-box;
  font-family: "Barlow Condensed", Bellefair, Barlow;
+ overflow: hidden;
 }
+
 
 </style>

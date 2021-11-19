@@ -27,7 +27,7 @@ import img2 from '../assets/crew/image-mark-shuttleworth.png'
 import img3 from '../assets/crew/image-victor-glover.png'
 import img4 from '../assets/crew/image-anousheh-ansari.png'
 export default {
-  name: 'destination',
+  name: 'crews',
   data: () => ({
     tabs: ['0', '1', '2', '3'],
     activeTab: '0',
@@ -71,6 +71,8 @@ export default {
   height: 900px;
   padding-top: 40px;
   color: #fff;
+  overflow: hidden;
+
   &-container {
     padding-left: 55px;
   }
@@ -129,8 +131,8 @@ export default {
       margin: 0;
     }
     .btn-container {
-     top: 332px;
-     left: 130px;
+      top: 332px;
+      left: 130px;
       .btn {
         width: 10px;
         height: 10px;

@@ -10,6 +10,7 @@ body {
  padding: 0;
  box-sizing: border-box;
  font-family: "Barlow Condensed", Bellefair, Barlow;
+ // overflow-x: hidden;
 }
 
 // a.nuxt-link-exact-active {
@@ -32,11 +33,11 @@ p, h3, h1, h2, h4, h5, h6{
  }
 }
 
-.image-enter-active, .image-leave-active {
+.transition-enter-active, .transition-leave-active {
  transition: .15s ease-out;
 }
 
-.image-leave-to, .image-enter {
+.transition-leave-to, .transition-enter {
  opacity: 0;
 }
 

@@ -10,7 +10,6 @@
               <transition name="image" mode="out-in">
                 <img
                   :src="transition[activeTab]"
-                  :key="item"
                   alt=""
                   class="planet-image"
                 />
@@ -80,7 +79,7 @@ export default {
   height: 900px;
   padding-top: 40px;
   color: #fff;
-
+  overflow: hidden;
   &-container {
     padding-left: 55px;
   }

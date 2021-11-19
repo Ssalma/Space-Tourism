@@ -105,7 +105,6 @@ export default {
             font-weight: 700;
             margin-right: 16px;
           }
-          // margin-bottom: 32px;
         }
         .title {
           margin-top: 32px;

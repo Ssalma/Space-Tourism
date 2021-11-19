@@ -141,17 +141,24 @@ nav {
     }
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   nav {
+    justify-content: space-between;
     .nav-link {
       height: 40px;
       margin-bottom: 34px;
     }
     .nav-content {
-      display: none;
+      position: absolute;
       padding: 34px;
+      right: -100vw;
       justify-content: flex-start;
       align-items: flex-start;
+      transition: 150ms ease-out;
+
+      &::before {
+        display: none;
+      }
     }
     .link-wrapper{
       margin-top: 100px;
@@ -179,13 +186,10 @@ nav {
     #hamburger:checked ~ .nav-content {
       width: 255px;
       height: 100vh;
-      display: block;
       position: absolute;
       top: -18px;
       right: -24px;
-      &::before {
-        display: none;
-      }
+
     }
   }
 }
