@@ -1,18 +1,15 @@
 <template>
   <div class="hero">
     <div class="hero-container">
-      <Navbar />
       <div class="hero-content">
         <div class="hero-content-text">
           <div>
             <h2 class="page-title"><span>01</span> Pick your destination</h2>
             <div class="planet">
               <transition name="image" mode="out-in">
-                <img
-                  :src="transition[activeTab]"
-                  alt=""
-                  class="planet-image"
-                />
+                <span v-for="img in images" :key="img.name">
+                  <img :src="img.image" alt="" class="planet-image" />
+                </span>
               </transition>
             </div>
           </div>
@@ -53,13 +50,18 @@ export default {
   data: () => ({
     tabs: ['Moon', 'Mars', 'Europa', 'Titan'],
     activeTab: 'Moon',
-    transition: {
-      Moon: MoonImg,
-      Mars: MarsImg,
-      Europa: EuropaImg,
-      Titan: TitanImg,
-    },
+    transition: [
+      { name: 'Moon', image: MoonImg },
+      { name: 'Mars', image: MarsImg },
+      { name: 'Europa', image: EuropaImg },
+      { name: 'Titan', image: TitanImg },
+    ],
   }),
+  computed: {
+    images() {
+      return this.transition.filter((i) => i.name === this.activeTab)
+    },
+  },
 }
 </script>
 
@@ -68,20 +70,18 @@ export default {
 .image-leave-active {
   transition: 0.3s ease-out;
 }
-
 .image-enter,
 .image-leave-to {
   transition: 1s ease-in-out;
 }
-
 .hero {
   background-image: url(../assets/destination/background-destination-desktop.jpg);
   height: 900px;
   padding-top: 40px;
   color: #fff;
-  overflow: hidden;
   &-container {
     padding-left: 55px;
+    margin-top: 60px;
   }
 
   &-content {
@@ -91,12 +91,10 @@ export default {
     margin: 75px auto;
     padding: 0 85px 0 30px;
     z-index: 1;
-
     &-text {
       .planet {
         margin: 95px 0 0 35px;
       }
-
       .page-title {
         font-family: 'Barlow Condensed';
         font-weight: 400;
@@ -105,16 +103,13 @@ export default {
         letter-spacing: 4.725px;
         text-transform: uppercase;
         color: #ffffff;
-
         span {
           opacity: 0.25;
         }
       }
     }
-
     &-explore {
       margin-top: 110px;
-
       .tab-item {
         font-family: 'Barlow Condensed';
         font-weight: normal;
@@ -126,16 +121,13 @@ export default {
         border: none;
         margin-right: 35px;
         padding: 12px 0;
-
         &.active {
           border-bottom: 2px solid #fff;
         }
-
         a.nuxt-link-exact-active {
           border-bottom: 2px solid #fff;
         }
       }
-
       .destination {
         margin-top: 35px;
       }
@@ -145,9 +137,10 @@ export default {
   @media screen and (max-width: 800px) {
     background-image: url(../assets/destination/background-destination-tablet.jpg);
     padding: 0;
-
+    height: 120vh;
     &-container {
-      padding: 0 24px;
+      padding: 100px 24px 0;
+      margin: 0;
     }
     &-content {
       display: flex;
@@ -157,7 +150,6 @@ export default {
       width: 100%;
       margin: 0;
       padding: 0;
-
       &-text {
         .planet {
           display: flex;
@@ -170,13 +162,11 @@ export default {
             height: 170px;
           }
         }
-
         .page-title {
           font-size: 16px;
           line-height: 19px;
         }
       }
-
       &-explore {
         margin: 0;
         .tabs {
@@ -185,13 +175,11 @@ export default {
           display: flex;
           justify-content: space-between;
         }
-
         .tab-item {
           text-align: center;
           padding: 0;
           margin: 0;
         }
-
         .destination {
           margin-top: 20px;
           text-align: center;

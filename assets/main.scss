@@ -21,6 +21,7 @@ button{
 }
 p, h3, h1, h2, h4, h5, h6{
  margin: 0;
+ padding: 0;
 }
 .crew-content {
  display: grid;
@@ -33,11 +34,14 @@ p, h3, h1, h2, h4, h5, h6{
  }
 }
 
-.transition-enter-active, .transition-leave-active {
- transition: .15s ease-out;
+.image-enter-active{
+ transition: .1s ease-out;
 }
 
-.transition-leave-to, .transition-enter {
+.image-leave-active  {
+ transition: .1s ease-in;
+}
+.image-leave-to, .image-enter {
  opacity: 0;
 }
 

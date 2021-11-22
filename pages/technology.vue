@@ -1,9 +1,6 @@
 <template>
   <div class="tech">
     <div class="tech-container">
-      <transition>
-        <Navbar />
-      </transition>
       <h2 class="page-title"><span>03</span>SPACE LAUNCH 101</h2>
       <div class="tech-content">
         <div class="btn-container">
@@ -17,7 +14,11 @@
           </button>
         </div>
         <Techtext class="tech-text" :technology="technology[activeTab]" />
-        <Techimage class="tech-image" :image="image[activeTab]" :imageMobile="mobileImage[activeTab]"/>
+        <Techimage
+          class="tech-image"
+          :image="image[activeTab]"
+          :imageMobile="mobileImage[activeTab]"
+        />
       </div>
     </div>
   </div>
@@ -52,18 +53,32 @@ export default {
       },
     ],
     image: [launchImg, spaceportImg, capsuleImg],
-    mobileImage: [launchImgMobile, spaceportImgMobile, capsuleImgMobile]
+    mobileImage: [launchImgMobile, spaceportImgMobile, capsuleImgMobile],
   }),
+  computed: {
+    images() {
+      return this.image.map((i) => i === this.activeTab)
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+.image-enter-active,
+.image-leave-active {
+  transition: 0.3s ease-out;
+}
+.image-enter,
+.image-leave-to {
+  transition: 1s ease-in-out;
+}
 .tech {
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
   &-container {
     background-image: url(../assets/technology/background-technology-desktop.jpg);
     height: 900px;
-    padding-left: 55px;
+    padding: 200px 0 0 55px;
     .page-title {
       font-family: 'Barlow Condensed';
       font-weight: 400;
@@ -72,7 +87,6 @@ export default {
       letter-spacing: 4.725px;
       text-transform: uppercase;
       color: #ffffff;
-      margin-top: 75px;
       span {
         opacity: 0.25;
         margin-right: 24px;
@@ -125,8 +139,10 @@ export default {
     &-container {
       background-image: url(../assets/technology/background-technology-tablet.jpg);
       height: 100vh;
-      padding: 0 24px;
+      padding: 100px 24px 0;
+
       .page-title {
+        text-align: center;
         font-size: 16px;
         line-height: 19px;
         margin-top: 24px;

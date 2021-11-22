@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <div class="layout-content">
-      <Navbar />
+      <!-- <Navbar /> -->
       <div class="layout-hero-content">
         <slot />
       </div>
@@ -22,18 +22,15 @@ export default {
   height: 900px;
   color: #fff;
   &-content {
-    padding-left: 55px;
   }
   &-hero-content {
-    width: 87%;
-    margin: 250px auto 0;
+    width: 100%;
   }
 
   @media screen and (max-width: 768px) {
     background-image: url(../assets/home/background-home-tablet.jpg);
     height: 100vh;
     &-content {
-      padding: 0 24px;
     }
     &-hero-content {
       width: 100%;

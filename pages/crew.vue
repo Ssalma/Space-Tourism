@@ -1,10 +1,9 @@
 <template>
   <div class="hero">
     <div class="hero-container">
-      <Navbar />
       <div class="hero-content">
-        <transition name="image">
-          <crew :crew="crews[activeTab]" />
+        <transition name="image" mode="out-in">
+            <crew :crew="crews[activeTab]" />
         </transition>
         <div class="btn-container">
           <button
@@ -62,6 +61,11 @@ export default {
       },
     ],
   }),
+  computed: {
+    Crews() {
+      return this.crews.filter((i) => i.image === this.activeTab)
+    },
+  },
 }
 </script>
 
@@ -71,16 +75,17 @@ export default {
   height: 900px;
   padding-top: 40px;
   color: #fff;
-  overflow: hidden;
-
   &-container {
     padding-left: 55px;
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
   &-content {
     width: 85%;
     margin: 75px auto 0;
     position: relative;
-    // padding: 0 85px 0 30px;
     z-index: 0;
     &-text {
       .page-title {
@@ -117,7 +122,7 @@ export default {
       }
     }
   }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 768px) {
     background-image: url(../assets/crew/background-crew-mobile.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -125,13 +130,14 @@ export default {
     height: 100vh;
     &-container {
       padding: 0 24px;
+      align-items: flex-start;
     }
     &-content {
       width: 100%;
-      margin: 0;
+      margin: 85px 0 0 0;
     }
     .btn-container {
-      top: 332px;
+      bottom: 220px;
       left: 130px;
       .btn {
         width: 10px;

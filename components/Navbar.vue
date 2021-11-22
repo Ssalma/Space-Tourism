@@ -6,7 +6,7 @@
     </label>
     <input type="checkbox" name="ham" id="hamburger" />
     <ul class="nav-content">
-      <label for="hamburger" class="ham-label">
+      <label for="hamburger" class="close-ham-label">
         <img src="../assets/shared/icon-close.svg" alt="" class="close" />
       </label>
       <div class="link-wrapper">
@@ -71,15 +71,21 @@ export default {
 
 <style lang="scss" scoped>
 nav {
+  width: 100%;
   height: 100px;
-  position: sticky;
+  position: fixed;
   top: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: #fff;
   z-index: 100;
+  padding-left: 55px;
   .ham-label {
+    display: none;
+  }
+  .close-ham-label{
     display: none;
   }
   #hamburger {
@@ -144,6 +150,7 @@ nav {
 @media screen and (max-width: 768px) {
   nav {
     justify-content: space-between;
+    padding: 0 24px;
     .nav-link {
       height: 40px;
       margin-bottom: 34px;
@@ -174,7 +181,10 @@ nav {
     }
     .ham-label {
       display: flex;
-      justify-content: flex-end;
+    }
+    .close-ham-label{
+      display: flex;
+      
     }
     .close {
       width: 19px;
@@ -189,7 +199,6 @@ nav {
       position: absolute;
       top: -18px;
       right: -24px;
-
     }
   }
 }

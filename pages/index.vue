@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout class="layout">
     <div class="hero-content">
       <div class="hero-content-text">
         <p class="small-text">SO, YOU WANT TO TRAVEL TO</p>
@@ -12,10 +12,11 @@
         </p>
       </div>
       <div class="explore-wrapper">
-      <div class="hero-content-explore">
-        <h1>EXPLORE</h1>
-      </div>
-
+        <div class="hero-content-explore">
+          <Nuxtlink to="/destination">
+            <h1>EXPLORE</h1>
+          </Nuxtlink>
+        </div>
       </div>
     </div>
   </Layout>
@@ -26,14 +27,23 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.hero-content {
+.layout {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding-left: 55px;
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
+}
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
   align-items: flex-end;
-  overflow: hidden;
-  padding-right: 50px;
+  width: 90%;
+  margin: 250px auto 0;
+  // padding: 0 24px;
   &-text {
-    width: 450px;
     .small-text {
       font-family: 'Barlow Condensed';
       font-weight: 400;
@@ -60,6 +70,11 @@ export default {}
       margin: 0;
     }
   }
+  .explore-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 90px;
+  }
   &-explore {
     width: 275px;
     height: 275px;
@@ -79,16 +94,18 @@ export default {}
     }
   }
   @media screen and (max-width: 765px) {
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    padding: 0;
+    padding: 0 32px;
     grid-gap: 30px;
+    margin: 0;
     &-text {
       width: 100%;
       padding: 5px;
       .small-text {
         font-size: 16px;
-        line-height: 18px;
+        line-height: 19px;
         text-align: center;
       }
       .large-text {
@@ -101,12 +118,15 @@ export default {}
         font-size: 15px;
         line-height: 25px;
         text-align: center;
+        width: 95%;
+        margin: auto;
       }
     }
-    .explore-wrapper{
+    .explore-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 0;
     }
     &-explore {
       margin-top: 80px;

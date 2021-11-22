@@ -19,7 +19,6 @@ export default {
 
 <style lang="scss" scoped>
 .tech {
-  text-align: center;
   .ellipse {
     font-family: Barlow Condensed;
     font-style: normal;
@@ -49,6 +48,7 @@ export default {
     color: #d0d6f9;
   }
   @media screen and (max-width: 768px) {
+  text-align: center;
     .ellipse {
       font-size: 14px;
       line-height: 17px;

@@ -29,6 +29,8 @@ export default {
 <style lang="scss" scoped>
 .crew {
   &-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
     &-text {
       .page-title {
         font-family: 'Barlow Condensed';
@@ -87,21 +89,21 @@ export default {
         }
       }
     }
-    .crew-image {
-      height: 680px;
-    }
+   
   }
   @media screen and (max-width: 768px) {
     &-content {
+      margin: 0;
+      grid-template-columns: 1fr;
       &-text {
         text-align: center;
         .page-title {
           position: absolute;
-          top: 0;
+          top: 10px;
           font-size: 16px;
           line-height: 19px;
           left: 90px;
-          span{
+          span {
             font-weight: 700;
             margin-right: 16px;
           }
@@ -118,6 +120,7 @@ export default {
         .description {
           font-size: 15px;
           line-height: 25px;
+          padding: 0 10px;
         }
       }
       .image-wrapper {
@@ -127,6 +130,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        grid-row: 1;
       }
       .crew-image {
         max-width: 225px;
